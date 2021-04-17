@@ -2,9 +2,25 @@
   <div class="footer-column">
     <p>
       <small>
+        &copy;&nbsp;
         {%- if site.author -%}
-          &nbsp;Author: <a href="{{ site.author.url }}" target="_blank">{{ site.author.name }}</a>
-        {%- endif -%}.
+          &nbsp;<a href="{{ site.author.url }}" target="_blank">{{ site.author.name }}</a>
+        {%- endif -%}
+        . All right reserved.
       </small>
     </p>
+  </div>
+  {% if site.data.social %}
+    <div class="footer-column">
+      <ul class="social-icons">
+        {% for social in site.data.social %}
+          <li class="social-icon-item">
+            <a class="social-icon" href="{{ social.url }}" target="_blank">
+              <i class="{{ social.icon | default: 'fas fa-link' }}" title="{{ social.title }}"></i>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
 </footer>
